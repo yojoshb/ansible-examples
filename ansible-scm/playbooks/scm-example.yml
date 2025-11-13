@@ -1,0 +1,27 @@
+- name: Perform Git Actions
+  hosts: localhost, examplehost
+  gather_facts: true
+  tasks:
+    - name: Retrieve a repository from a distant location and make it available locally
+      ansible.scm.git_retrieve:
+        origin:
+          url: https://git.example.com/ansible/ansible-scm.git
+          token: your_git_repo_token
+        parent_directory: /tmp
+      register: repository
+      when: inventory_hostname == 'localhost'
+    
+    # Run tasks here
+    # Basic example is grabbing a file from the example host and storing it in the cloned repository
+    - name: Add sample.conf to the repository
+      ansible.builtin.fetch:
+        src: "/home/user/sample.conf"
+        dest: "/tmp/ansible-scm/"
+        flat: yes
+      when: inventory_hostname != 'localhost'
+
+    - name: Publish the changes
+      ansible.scm.git_publish:
+        path: "{{ repository['path'] }}"
+        token: your_git_repo_token
+      when: inventory_hostname == 'localhost'
