@@ -1,0 +1,8 @@
+plugin: microsoft.ad.ldap
+search_base: CN=Computers,DC=example,DC=com
+
+### These required vars are supplied by the custom credential
+# server: 
+# port:
+# username:
+# password:

@@ -1,0 +1,12 @@
+env:
+  MICROSOFT_AD_LDAP_PORT: '{{ ldap_port | default(''389'') }}'
+  MICROSOFT_AD_LDAP_SERVER: '{{ ldap_server }}'
+  MICROSOFT_AD_LDAP_CA_CERT: '{{ ldap_ca_cert }}'
+  MICROSOFT_AD_LDAP_ENCRYPT: '{{ ldap_encrypt }}'
+  MICROSOFT_AD_LDAP_PASSWORD: '{{ ldap_password }}'
+  MICROSOFT_AD_LDAP_USERNAME: '{{ ldap_username }}'
+  MICROSOFT_AD_LDAP_CERTIFICATE: '{{ ldap_certificate }}'
+  MICROSOFT_AD_LDAP_AUTH_PROTOCOL: '{{ ldap_auth_protocol | default(''negotiate'', true) }}'
+  MICROSOFT_AD_LDAP_CERTIFICATE_KEY: '{{ ldap_certificate_key }}'
+  MICROSOFT_AD_LDAP_CERT_VALIDATION: '{{ ldap_cert_validation | default(''always'', true) }}'
+  MICROSOFT_AD_LDAP_CERTIFICATE_PASSWORD: '{{ ldap_certificate_password }}'

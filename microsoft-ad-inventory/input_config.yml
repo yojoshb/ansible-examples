@@ -1,0 +1,73 @@
+fields:
+  - id: ldap_server
+    type: string
+    label: LDAP Server
+    help_text: The domain controller/server to connect to
+  - id: ldap_port
+    type: string
+    label: LDAP Port
+    help_text: Port 389 is used for LDAP and port 686 is used for LDAPS
+  - id: ldap_encrypt
+    type: boolean
+    label: LDAP Encryption
+    help_text: >-
+      Whether encryption is required for the connection. Encryption can either
+      be performed using the authentication protocol or through TLS. The
+      auth_protocol negotiate, kerberos, and ntlm all support encryption over
+      LDAP whereas simple does not. If using auth_protocol=simple over LDAP
+      without TLS then this must be set to False. As no encryption is used, all
+      traffic will be in plaintext and should be avoided.
+  - id: ldap_username
+    type: string
+    label: LDAP Username
+    help_text: The username to authenticate with.
+  - id: ldap_password
+    type: string
+    label: LDAP Password
+    secret: true
+    help_text: The password to authenticate with.
+  - id: ldap_auth_protocol
+    type: string
+    label: LDAP Auth Protocol
+    choices:
+      - simple
+      - certificate
+      - kerberos
+      - negotiate
+      - ntlm
+  - id: ldap_cert_validation
+    type: string
+    label: LDAP Cert Validation
+    choices:
+      - always
+      - ignore
+      - ignore_hostname
+    help_text: The certificate validation behaviour when using a TLS connection
+  - id: ldap_ca_cert
+    type: string
+    label: LDAP CA Cert
+    help_text: >-
+      Can be the path to a CA certificate PEM or DER file, directory of PEM
+      certificates, or the CA certificate PEM string that is used for
+      certificate validation
+  - id: ldap_certificate
+    type: string
+    label: LDAP Certificate
+    help_text: >-
+      The value can either be a path to a file containing the certificate or
+      string of the PEM encoded certificate
+  - id: ldap_certificate_key
+    type: string
+    label: LDAP Certificate Key
+    help_text: >-
+      The value can either be a path to a file containing the key in the PEM or
+      DER encoded form, or it can be the string of a PEM encoded key
+  - id: ldap_certificate_password
+    type: string
+    label: LDAP Certificate Password
+    secret: true
+    help_text: >-
+      The password used to decrypt the certificate key specified by LDAP
+      Certificate or LDAP Certificate Key
+required:
+  - ldap_server
