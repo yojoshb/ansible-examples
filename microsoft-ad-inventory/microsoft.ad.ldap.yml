@@ -1,8 +1,13 @@
+# Set in the file ending with microsoft.ad.ldap.yml or microsoft.ad.ldap.yaml
 plugin: microsoft.ad.ldap
+
+# Search for computer accounts in the Computers System Container
 search_base: CN=Computers,DC=example,DC=com
 
-### These required vars are supplied by the custom credential
+### The other vars are supplied by the custom credential i.e. 
 # server: 
 # port:
 # username:
 # password:
+
+# https://docs.ansible.com/projects/ansible/latest/collections/microsoft/ad/ldap_inventory.html#examples
