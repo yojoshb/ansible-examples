@@ -50,7 +50,7 @@ grep -rhoE '\{\{[[:space:]]*vaulted_[A-Za-z0-9_]+[[:space:]]*\}\}' ./filetree_ex
 
 - Simply edit the `secrets_vars.yml` file, and change the values accordingly, and vault the file
 
-_ Some templated objects may not get caught from the read operation i.e. `gateway_authenticators.yaml`. You may have to manually edit these files and add a variable to reference in your `secrets_vars.yml` 
+- Some templated objects may not get caught from the read operation i.e. `gateway_authenticators.yaml`. You may have to manually edit these files and add a variable to reference in your `secrets_vars.yml` 
 
 - SSH Key variables should layout like so: 
 ```yaml
