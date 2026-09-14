@@ -1,0 +1,3 @@
+aap_hostname: aap.example.com
+aap_validate_certs: false
+aap_oauthtoken: "{{ vault_containerized_aap_token }}"

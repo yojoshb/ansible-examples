@@ -1,0 +1,47 @@
+---
+- name: Import Configuration to Target AAP
+  hosts: openshift
+  connection: local
+  gather_facts: false
+  vars_files:
+    # Vaulted credentials file
+    - ./filetree_export/secrets_vars.yml
+  vars:
+    # Set to false for more logging. Useful when a credential fails to import from bad syntax/jinja templating i.e. custom credentials
+    #controller_configuration_credentials_secure_logging: false
+    
+    # Where the exported content lives that you want to import
+    export_root: &export_root ./filetree_export
+
+    # Setting in upstream v4.10, not yet available on Hub v4.9.1. Allows proper reading of filetree layout without manually creating it
+    #controller_configuration_filetree_read_layout: create
+    
+    # These have to be set even if you're not using structured output
+    orgs: ""
+    dir_orgs_vars: ""
+    
+    # Controller/Gateway shared readers
+    filetree_aap_organizations: *export_root
+    filetree_aap_user_accounts: *export_root
+    filetree_aap_teams: *export_root
+
+    # Controller readers
+    filetree_controller_credential_types: *export_root
+    filetree_controller_credentials: *export_root
+    filetree_controller_inventories: *export_root
+    filetree_controller_inventory_sources: *export_root
+    filetree_controller_hosts: *export_root
+    filetree_controller_notifications: *export_root
+    filetree_controller_projects: *export_root
+    filetree_controller_templates: *export_root
+    filetree_controller_workflow_job_templates: *export_root
+
+    # Gateway readers
+    filetree_gateway_authenticator_maps: *export_root
+    filetree_gateway_authenticators: *export_root
+    filetree_gateway_role_definitions: *export_root
+    filetree_gateway_role_user_assignments: *export_root
+
+  roles:
+    - infra.aap_configuration_extended.filetree_read
+    - infra.aap_configuration.dispatch

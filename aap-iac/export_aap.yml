@@ -1,0 +1,41 @@
+---
+- name: Export Source AAP Configuration
+  hosts: containerized
+  connection: local
+  gather_facts: false
+  vars:
+    # Path to save export
+    output_path: ./filetree_export
+    secrets_as_variables: true
+
+    # Structured data or flattened
+    flatten_output: false
+  
+  roles:
+    - role: infra.aap_configuration_extended.filetree_create
+      vars:
+        input_tag:
+          # Selected areas to export referenced by tags
+          - controller_hosts
+          - controller_organizations
+          - controller_credentials
+          - controller_credential_types
+          #- controller_execution_environments
+          - controller_inventories
+          - controller_inventory_sources
+          - controller_job_templates
+          - controller_notification_templates
+          - controller_projects
+          - controller_workflow_job_templates
+          #- controller_instance_groups
+          - gateway_authenticator_maps
+          - gateway_authenticators
+          - gateway_organizations
+          - gateway_role_definitions
+          - gateway_role_user_assignments
+          #- gateway_services
+          #- gateway_settings
+          - gateway_teams
+          - gateway_users
+
+

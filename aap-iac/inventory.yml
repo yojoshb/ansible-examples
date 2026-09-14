@@ -1,0 +1,11 @@
+---
+all:
+  children:
+    containerized:
+      hosts:
+        aap.example.com:
+          ansible_connection: local
+    openshift:
+      hosts:
+        aap.apps.ocp.example.com:
+          ansible_connection: local
