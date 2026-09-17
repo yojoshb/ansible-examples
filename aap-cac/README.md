@@ -1,4 +1,4 @@
-## AAP Infrastructure as Code (IaC) Example
+## AAP Configuration as Code (CaC) Example
 
 - Example was used to export AAP 2.6 containerized data into a AAP 2.7 OpenShift Operator deployment
 - Uses the current collections `aap_configuration-4.9.0` and `aap_configuration_extended-4.9.1` 
