@@ -8,7 +8,7 @@
 - Upstream docs: https://github.com/redhat-cop/aap_configuration_extended and https://github.com/redhat-cop/infra.aap_configuration
 
 ### Environment setup
-Credentials/API Tokens can be setup multiple ways. You can use the upstream docs format to create and detroy a token on use in the playbooks, using username/password for initial connection. This example uses a pre-generated token, and stores it in `group_vars` with a vaulted token for each instance
+Credentials/API Tokens can be setup multiple ways. You can use the upstream docs format to create and destroy a token on use in the playbooks, using username/password for initial connection. This example uses a pre-generated token, and stores it in `group_vars` with a vaulted token for each instance
 ```bash
 group_vars/
 ├── containerized
