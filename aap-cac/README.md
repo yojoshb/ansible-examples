@@ -2,7 +2,7 @@
 
 - Example was used to export AAP 2.6 containerized data into a AAP 2.7 OpenShift Operator deployment
 - Uses the current collections `aap_configuration-4.9.0` and `aap_configuration_extended-4.9.1` 
-    - Check `requirements.yml` for all needed collections
+    - Check [requirements.yml](./requirements.yml) for all needed collections
     - https://console.redhat.com/ansible/automation-hub/collections/validated/infra/aap_configuration/details
     - https://console.redhat.com/ansible/automation-hub/collections/validated/infra/aap_configuration_extended/details
 - Upstream docs: https://github.com/redhat-cop/aap_configuration_extended and https://github.com/redhat-cop/infra.aap_configuration
